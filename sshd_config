@@ -1,0 +1,8 @@
+PermitRootLogin yes
+PasswordAuthentication yes
+PermitEmptyPasswords yes
+UsePAM yes
+X11Forwarding yes
+X11UseLocalhost no
+AcceptEnv no
+PrintMotd no

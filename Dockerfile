@@ -12,6 +12,11 @@ RUN unzip tapps2-1.19.1-amd64-deb.zip
 RUN apt-get install -y ./tapps2-1.19.1-amd64.deb
 RUN rm ./tapps2-1.19.1*
 
+# https://www.ta.co.at/en/downloads/file/16891701-winsol-64-bit-deb/winsol-2.13-amd64.deb.zip
+ADD ./winsol-2.13-amd64.deb winsol-2.13-amd64.deb
+RUN apt-get install -y ./winsol-2.13-amd64.deb
+RUN rm ./winsol*.deb
+
 ## Start taps
 # docker run -e DISPLAY=host.docker.internal:0
 #ENV DISPLAY=host.docker.internal:0

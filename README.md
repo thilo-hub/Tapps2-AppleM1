@@ -1,5 +1,11 @@
 # Tapps2-AppleM1
 
+TAPPS2 ( https://www.ta.co.at ) is a programming software for the process controlers from TA.
+Unfortunatly this software is only running on Windows and Linux.
+Apple MacOS is not supported.
+
+This repository provides the framework to run on an Apple-M1.
+
 ## The Problem ##
 
 Execute Tapps2 software on MacOS-M1.
@@ -17,14 +23,20 @@ Building/creating the Dockerfile:
 docker build --platform linux/amd64 -t thiloj/tapps2 .
 ```
 
-This should also be abailable on dockerhub, so maybe only runing the script is all you need after installing Docker.
+This should also be ready-build available on dockerhub, so maybe only runing the script is all you need after installing Docker.
 
 ## Usage: ##
-Start Tapps2 and make the current directory available under /Work/Files in Tapps2
+
+### Command line
+Start Tapps2 and make the current directory ($PWD) available under /Work/Files in Tapps2
 
 ```
 StartTapps2.sh $PWD
 ```
+### GUI (Click)
+It is possible to start TAPPS using the app-icon. Quartz & Docker need to be installed, but the docker exec should pull automatically.
+It will use your ~/Documents folder -- this might not be what you want if security is on your prio list.
+Changing the script is easy though.
 
 ## External references ##
 

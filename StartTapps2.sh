@@ -14,7 +14,7 @@ esac
 set "$@" $PWD/.
 MP="$1"
 test -d "$MP" || MP="$(dirname "$MP")"
-docker run -d  --rm  --platform linux/amd64 -ti -v $MP:/Work/Files -p 2222:22  --name Tapps2    thiloj/tapps2
+docker run -d  --rm  --platform linux/amd64 -ti -v "$MP:/Work/Files" -p 2222:22  --name Tapps2    thiloj/tapps2
 sleep 3
 DCONF=tapps2.config.tar.gz
 echo "Load config"
@@ -22,8 +22,10 @@ test -f $DCONF && ssh -p 2222 Tapps2@localhost tar xf - < $DCONF
 ssh -Y  -p 2222 Tapps2@localhost $TOOL
 echo "Save config"
 ssh -p 2222 Tapps2@localhost tar -cf - ".??*"  > $DCONF
+pkill quartz &
 docker kill Tapps2
 
+wait
 exit;
 
 # Would be nice if this would work:
